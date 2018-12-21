@@ -3,9 +3,14 @@ var cheerio = require('cheerio');
 
 var criteriaAnswer = [];
 var criteriaQuestion = [];
-var employerCriteria = {};
-
 var employer = "readify";
+var employerCriteria = {
+    "employer": "Readify",
+    "slug" : `${employer}`,
+    "criteria": []
+};
+
+
 
 request(`https://www.work180.com.au/clients/${employer}`, function (error, response, html) {
     if (!error && response.statusCode == 200) {
@@ -18,7 +23,11 @@ request(`https://www.work180.com.au/clients/${employer}`, function (error, respo
         });
     }
     for (i = 0; i < criteriaQuestion.length; i++) {
-        employerCriteria[criteriaQuestion[i]] = criteriaAnswer[i];
+        var jsonElement = {
+            "question" : criteriaQuestion[i],
+            "answer" : criteriaAnswer[i]
+    };
+        employerCriteria.criteria.push(jsonElement);
     }
 
     var JsonData = JSON.stringify(employerCriteria);

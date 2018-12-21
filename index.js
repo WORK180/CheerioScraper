@@ -1,10 +1,13 @@
 var request = require('request');
 var cheerio = require('cheerio');
 
-var criteriaAnswer =[];
+var criteriaAnswer = [];
 var criteriaQuestion = [];
-var employerCriteria = {}
-request('https://www.work180.com.au/clients/accenture', function (error, response, html) {
+var employerCriteria = {};
+
+var employer = "readify";
+
+request(`https://www.work180.com.au/clients/${employer}`, function (error, response, html) {
     if (!error && response.statusCode == 200) {
         var $ = cheerio.load(html);
         $('.sh.row.feature-row.row-eq-height').each(function (i, element) {
@@ -14,9 +17,16 @@ request('https://www.work180.com.au/clients/accenture', function (error, respons
             criteriaQuestion.push(q.text().trim());
         });
     }
-    for(i = 0; i < criteriaQuestion.length; i ++)
-    {
-        employerCriteria[criteriaQuestion[i]] = criteriaAnswer [i];
+    for (i = 0; i < criteriaQuestion.length; i++) {
+        employerCriteria[criteriaQuestion[i]] = criteriaAnswer[i];
     }
-    console.log(employerCriteria);
+
+    var JsonData = JSON.stringify(employerCriteria);
+    var fs = require('fs');
+    fs.writeFile(`results/${employer}.json`, JsonData, function (err) {
+        if (err) {
+            console.log(err);
+        }
+        console.log(`Saving ${employer} File.`);
+    });
 });

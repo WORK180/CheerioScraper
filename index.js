@@ -1,11 +1,16 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var argv = require('minimist')(process.argv.slice(2));
 
 var criteriaAnswer = [];
 var criteriaQuestion = [];
-var employer = "readify";
+var employer = argv._[0];
+var employerName = "";
+for (i = 1; i < argv._.length; i++) {
+    employerName = employerName + " " + argv._[i];
+}
 var employerCriteria = {
-    "employer": "Readify",
+    "employer": employerName.trim(),
     "slug" : `${employer}`,
     "criteria": []
 };

@@ -37,7 +37,7 @@ request(`https://www.work180.com.au/clients/${employer}`, function (error, respo
 
     var JsonData = JSON.stringify(employerCriteria);
     var fs = require('fs');
-    fs.writeFile(`results/${employer}.json`, JsonData, function (err) {
+    fs.writeFile(`results/employer-initiatives-${employer}.json`, JsonData, function (err) {
         if (err) {
             console.log(err);
         }

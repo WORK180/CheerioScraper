@@ -11,10 +11,10 @@ for (i = 1; i < argv._.length; i++) {
 }
 var employerCriteria = {
     "employer": employerName.trim(),
-    "slug" : `${employer}`,
-    "criteria": []
+    "slug": `${employer}`,
+    "criteria": [],
+    "description": ""
 };
-
 
 
 request(`https://www.work180.com.au/clients/${employer}`, function (error, response, html) {
@@ -26,12 +26,13 @@ request(`https://www.work180.com.au/clients/${employer}`, function (error, respo
             criteriaAnswer.push(a.text().trim());
             criteriaQuestion.push(q.text().trim());
         });
+        employerCriteria.description = $('#client-content').html();
     }
     for (i = 0; i < criteriaQuestion.length; i++) {
         var jsonElement = {
-            "question" : criteriaQuestion[i],
-            "answer" : criteriaAnswer[i]
-    };
+            "question": criteriaQuestion[i],
+            "answer": criteriaAnswer[i]
+        };
         employerCriteria.criteria.push(jsonElement);
     }
 

@@ -16,11 +16,6 @@ var employerCriteria = {
     "description": ""
 };
 
-var employerDetails = {
-
-}
-
-
 
 request(`https://www.work180.com.au/clients/${employer}`, function (error, response, html) {
     if (!error && response.statusCode == 200) {

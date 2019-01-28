@@ -18,6 +18,7 @@ bae-systems Bae Systems
 bank-of-queensland Bank Of Queensland
 barwon-water Barwon Water
 bhp BHP
+black-dot-ai black.ai
 blackbird Blackbird Ventures
 bp BP
 brisbane-airport-corporation Brisbane Airport Corporation
@@ -31,6 +32,7 @@ citi Citi
 city-of-melbourne City Of Melbourne
 clayton-utz Clayton Utz
 clearview ClearView
+coates-hire Coates Hire
 colin-biggers-and-pasiley Colin Biggers & Paisley
 common-code Common Code
 cpb-contractors CPB Contractors
@@ -91,6 +93,7 @@ rms RMS
 robert-bird-group Robert Bird
 schindler-lifts-australian Schindler
 sedgman Sedgman
+seer Seer
 servicenow ServiceNow
 siemens Siemens
 social-ventures-australia SVA

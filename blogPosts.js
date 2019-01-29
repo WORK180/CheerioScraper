@@ -10,7 +10,8 @@ var blogDetails = {
     "author": "",
     "body": "",
     "tags": [],
-    "upload_date": ""
+    "upload_date": "",
+    "associated_company": ""
 };
 
 
@@ -20,14 +21,19 @@ request(`${blogUrl}`, function (error, response, html) {
         blogDetails.title = ($('h1').text());
         blogDetails.author = ($('.author-name > p').text());
         blogDetails.body = ($('.blog-body').html());
-        
+
         //get date from url
         blogDetails.upload_date = blogUrl.substring(32, 39);
 
         //get tags and add to array
         $('small').each(function (i, element) {
-            blogDetails.tags.push($(this).text().replace(",","").trim());
+            blogDetails.tags.push($(this).text().replace(",", "").trim());
         });
+        if (blogDetails.author = "WORK180") {
+            blogDetails.associated_company = "work180";
+        } else {
+            blogDetails.associated_company = "undefined";
+        }
     }
 
     var JsonData = JSON.stringify(blogDetails);

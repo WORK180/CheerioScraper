@@ -11,7 +11,7 @@ var blogDetails = {
     "body": "",
     "tags": [],
     "upload_date": "",
-    "associated_company": ""
+    "associated_companies": []
 };
 
 
@@ -29,11 +29,9 @@ request(`${blogUrl}`, function (error, response, html) {
         $('small').each(function (i, element) {
             blogDetails.tags.push($(this).text().replace(",", "").trim());
         });
-        if (blogDetails.author = "WORK180") {
-            blogDetails.associated_company = "work180";
-        } else {
-            blogDetails.associated_company = "undefined";
-        }
+        if (blogDetails.author = "WORK180" || blogDetails.author == "DCC Jobs" || blogDetails.author == "Diverse City Careers") {
+            blogDetails.associated_companies.push("work180");
+        } 
     }
 
     var JsonData = JSON.stringify(blogDetails);

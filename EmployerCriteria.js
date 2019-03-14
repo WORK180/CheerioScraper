@@ -1,6 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
-let converter = require('json-2-csv');
+var converter = require('json-2-csv');
+var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
 
 var criteriaAnswer = [];
@@ -40,7 +41,7 @@ var criteriaQuestion = [
     "Paid volunteer days"
 ];
 
-
+var csvdata;
 
 
 request(`https://au.work180.co/employer/${employer}`, function (error, response, html) {
@@ -66,31 +67,30 @@ request(`https://au.work180.co/employer/${employer}`, function (error, response,
 
         employerCriteria.criteria.push(jsonElement);
     }
-    var csvdata;
     var JsonData = JSON.stringify(employerCriteria);
-    csvdata= csvdata + JsonData;
-    var fs = require('fs');
+    csvdata = csvdata + JsonData;
     fs.writeFile(`results/json/employer-initiatives-${employer}.json`, JsonData, function (err) {
         if (err) {
             console.log(err);
         }
         console.log(`Saving ${employer} File.`);
-    });
-
-    let json2csvCallback = function (err, csv) {
-        if (err) throw err;
-        fs.writeFile(`results/csv/employer-initiatives-${employer}.csv`, csv, 'utf8', function(err) {
-          if (err) {
-            console.log('Some error occured - file either not saved or corrupted file saved.');
-          } else {
-            console.log('It\'s saved!');
-          }
-        });
-        console.log(csv);
-    };
-    
-    converter.json2csv(employerCriteria.criteria, json2csvCallback, {
-      prependHeader: false      // removes the generated header of "Criteria" 
-      
+        convertToJson(employerCriteria.criteria)
     });
 });
+function convertToJson(csvraw){
+let json2csvCallback = function (err, csv) {
+    if (err) throw err;
+    fs.writeFile(`results/csv/${employer}.csv`, csv, 'utf8', function (err) {
+        if (err) {
+            console.log('Some error occured - file either not saved or corrupted file saved.');
+        } else {
+            console.log('It\'s saved!');
+        }
+    });
+};
+
+converter.json2csv(csvraw, json2csvCallback, {
+    prependHeader: false      // removes the generated header of "Criteria" 
+
+});
+}

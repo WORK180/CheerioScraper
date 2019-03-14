@@ -1,6 +1,5 @@
 accenture Accenture
 adobe Adobe
-aecom Aecom
 agl-energy AGL
 airbus Airbus
 alcoa Alcoa
@@ -9,27 +8,27 @@ amp AMP
 anglo-american AngloAmerican
 aristocrat Aristocrat
 arq-group ARQ Group
-arup ARUP 
+arup ARUP
 ashurst Ashurst
 atlassian Atlassian
 asunet-services AusNet Services
 australiansuper AustralianSuper
 automattic Automattic
+brisbane-airport-corporation Brisbane Airport Corporation
 bae-systems Bae Systems
-bank-of-queensland Bank Of Queensland
 barwon-water Barwon Water
 bhp BHP
 black-dot-ai blackdotai
 blackbird Blackbird Ventures
+bank-of-queensland Bank Of Queensland
 bp BP
-brisbane-airport-corporation Brisbane Airport Corporation
 brown-forman Brown-Forman
 buildkite Buildkite
 bunnings-group-limited Bunnings
 caltex Caltex
 cbus Cbus
 cimic-group CIMIC
-citi Citi 
+citi Citi
 city-of-melbourne City Of Melbourne
 clayton-utz Clayton Utz
 clearview ClearView
@@ -43,6 +42,7 @@ department-of-premier-and-cabinet Department of Premier and Cabinet
 dexus Dexus
 downer Downer Group
 edith-cowan-univeristy Edith Cowan University
+essential-energy Essential Energy
 expedia-group Expedia
 flurosat Flurosat
 ge GE
@@ -50,8 +50,8 @@ ghd GHD
 global-vision-media Global Vision Media
 harbour-city-ferries Harbour City Ferries
 holcim Holcim
-hsbc HSBC
 hollard Holland
+hsbc HSBC
 ibm IBM
 icon-water Icon Water
 incitec-pivot-limited Incitec Pivot Limited
@@ -67,10 +67,10 @@ lookahead-search LookAhead
 mckinsey-and-company Mckinsey & Company
 me-bank ME Bank
 mec-mining MEC Mining
-merck-sharp-and-dome Merck Sharp & Dome
 metro-trains Metro Trains
 microsoft Microsoft
 motorola-solutions Motorola Solution
+merck-sharp-and-dome Merck Sharp & Dome
 nab NAB
 nbn NBN
 no-moss NoMoss
@@ -83,12 +83,11 @@ ppg PPG
 programmed Programmed
 pwc PWC
 qantas Qantas
-qinetiq Qinetiq
 queensland-fire-and-emergency-services Queensland Fire & Emergency Services
-queensland-law-society Queensland Law Society
+qinetiq Qinetiq
 queensland-police-service Queensland Police Service
 queensland-urban-utilities Queensland Urban Utilities
-rabobank RaboBank
+queensland-law-society Queensland Law Society
 rac RAC
 racq RACQ
 readify Readify
@@ -100,12 +99,11 @@ sedgman Sedgman
 seer Seer
 servicenow ServiceNow
 siemens Siemens
-social-ventures-australia SVA
 stanwell Stanwell
+social-ventures-australia SVA
 symantec Symantec
 tal TAL
 telstra Telstra
-the-yield The Yield
 thiess Thiess
 toyota Toyota
 transgrid TransGrid

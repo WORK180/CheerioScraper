@@ -73,24 +73,25 @@ request(`https://au.work180.co/employer/${employer}`, function (error, response,
         if (err) {
             console.log(err);
         }
-        console.log(`Saving ${employer} File.`);
+        console.log(`Saving ${employer} Json File.`);
         convertToJson(employerCriteria.criteria)
     });
 });
-function convertToJson(csvraw){
-let json2csvCallback = function (err, csv) {
-    if (err) throw err;
-    fs.writeFile(`results/csv/${employer}.csv`, csv, 'utf8', function (err) {
-        if (err) {
-            console.log('Some error occured - file either not saved or corrupted file saved.');
-        } else {
-            console.log('It\'s saved!');
-        }
+
+function convertToJson(csvraw) {
+    let json2csvCallback = function (err, csv) {
+        if (err) throw err;
+        fs.writeFile(`results/csv/${employer}.csv`, csv, 'utf8', function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(`Saving ${employer} Csv File.`);
+            }
+        });
+    };
+
+    converter.json2csv(csvraw, json2csvCallback, {
+        prependHeader: false // removes the generated header of "Criteria" 
+
     });
-};
-
-converter.json2csv(csvraw, json2csvCallback, {
-    prependHeader: false      // removes the generated header of "Criteria" 
-
-});
 }
